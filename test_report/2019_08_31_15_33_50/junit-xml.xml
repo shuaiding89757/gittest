@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?><testsuite errors="0" failures="1" name="pytest" skipped="0" tests="7" time="71.464"><testcase classname="test_dir.test_baidu.TestSearch" file="test_dir\test_baidu.py" line="11" name="test_baidu_search_case" time="5.872"></testcase><testcase classname="test_dir.test_baidu.TestSearch" file="test_dir\test_baidu.py" line="28" name="test_baidu_search[case1]" time="13.140"><failure message="AssertionError: assert &apos;百度产品大全&apos; == &apos;Selenium_百度搜索&apos;
+  - 百度产品大全
+  + Selenium_百度搜索">self = &lt;test_dir.test_baidu.TestSearch object at 0x03A03B70&gt;, name = &apos;1&apos;
+search_key = &apos;Selenium&apos;
+browser = &lt;selenium.webdriver.chrome.webdriver.WebDriver (session=&quot;4b77b58982ac38f16e517636a9c156f3&quot;)&gt;
+base_url = &apos;https://www.baidu.com&apos;
+
+    @pytest.mark.parametrize(
+        &quot;name, search_key&quot;,
+        [(&quot;1&quot;, &quot;Selenium&quot;),
+         (&quot;2&quot;, &quot;pytest文档&quot;),
+         (&quot;3&quot;, &quot;pytest-html&quot;),
+         ],
+         ids=[&quot;case1&quot;, &quot;case2&quot;, &quot;case3&quot;]
+        )
+    def test_baidu_search(self, name, search_key, browser, base_url):
+        page = BaiduPage(browser)
+        page.get(base_url)
+        page.search_input = search_key
+        page.search_button.click()
+        sleep(2)
+&gt;       assert browser.title == search_key+&quot;_百度搜索&quot;
+E       AssertionError: assert &apos;百度产品大全&apos; == &apos;Selenium_百度搜索&apos;
+E         - 百度产品大全
+E         + Selenium_百度搜索
+
+test_dir\test_baidu.py:43: AssertionError</failure></testcase><testcase classname="test_dir.test_baidu.TestSearch" file="test_dir\test_baidu.py" line="28" name="test_baidu_search[case2]" time="3.475"></testcase><testcase classname="test_dir.test_baidu.TestSearch" file="test_dir\test_baidu.py" line="28" name="test_baidu_search[case3]" time="4.745"></testcase><testcase classname="test_dir.test_baidu.TestSearchSettings" file="test_dir\test_baidu.py" line="48" name="test_baidu_search_setting" time="34.557"></testcase><testcase classname="test_dir.test_parametrize" file="test_dir\test_parametrize.py" line="19" name="test_baidu_search[1-Selenium]" time="2.327"></testcase><testcase classname="test_dir.test_parametrize" file="test_dir\test_parametrize.py" line="19" name="test_baidu_search[2-poium]" time="4.360"></testcase></testsuite>
