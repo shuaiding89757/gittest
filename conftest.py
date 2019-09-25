@@ -1,4 +1,5 @@
 import os
+import time
 import pytest
 from py._xmlgen import html
 from selenium import webdriver
